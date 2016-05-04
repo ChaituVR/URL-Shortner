@@ -106,14 +106,14 @@ var sendResponse =function(response){
                 else if (result.length) {
                     console.log('Found:', result);
                     shortURL=result[0].short_url;
-                    response = {"original_url": req.params.url,"short_url": process.env.IP+"/"+shortURL};
+                    response = {"original_url": req.params.url,"short_url": "https://smallu.herokuapp.com/"+shortURL};
                     sendResponse(response);
                     db.close();
                 }
                 else {
                     //console.log('No document(s) found with defined "find" criteria!');
                     shortURL= String(makeShortId());
-                    response = {"original_url": req.params.url,"short_url": shortURL};
+                    response = {"original_url": req.params.url,"short_url": "shortURL"+shortURL};
                     
                     collection.insert(response, function(err, result) {
                         
@@ -127,7 +127,7 @@ var sendResponse =function(response){
                         db.close();
                         
                     });
-                    sendResponse({"original_url": req.params.url,"short_url": process.env.IP+"/"+shortURL});
+                    sendResponse({"original_url": req.params.url,"short_url": "https://smallu.herokuapp.com/"+shortURL});
                 }
 
             });
