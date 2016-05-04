@@ -113,7 +113,7 @@ var sendResponse =function(response){
                 else {
                     //console.log('No document(s) found with defined "find" criteria!');
                     shortURL= String(makeShortId());
-                    response = {"original_url": req.params.url,"short_url": "shortURL"+shortURL};
+                    response = {"original_url": req.params.url,"short_url": "https://smallu.herokuapp.com/"+shortURL};
                     
                     collection.insert(response, function(err, result) {
                         
