@@ -1,17 +1,21 @@
 ##Guide for using MongoDB and deploying it to Heroku
 
-First Let us see how to work with MongoDB localy and then deploying it to Heroku using mLab
+In this guide lets see how to work with MongoDB localy and with mLab for deploying it to Heroku
 
 #### Setting up a free account on Heroku and mLab:
 
 Sign up for [Heroku](https://signup.heroku.com/) and [mLab](https://mlab.com/signup/)
 
 
-###Starting your Mongodb: 
+####Starting your Mongodb(Locally): 
+```mongod --dbpath data``` _(Create a directory named data if it doesn't exist)_
 
->If you have trouble starting your DB in C9 refer to this [page](https://community.c9.io/t/setting-up-mongodb/1717)
+>If you are using C9 and If you are having trouble starting your DB in C9 refer to this [page](https://community.c9.io/t/setting-up-mongodb/1717)
 
-###Making a Connection with MongoDB in Node.js (While DB is running in your Local System):
+####Starting your Mongodb(mLab):
+1. After Creating your mLab Account click on create new button and select Single-node -> Sandbox to get the free Db and give your database a name (i've created a db named 'food' for this) 
+2. No create a 
+####Making a Connection with MongoDB in Node.js (While DB is running in your Local System):
 
 To work with the database, you first need to create a connection. In this section we will be using MongoDB’s native Node.js driver to create the connection with the MongoDB server. To install the mongodb native drivers, use the npm command to install the mongodb module. After that, run the following command in your project directory.
 
