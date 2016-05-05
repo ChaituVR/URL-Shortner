@@ -1,6 +1,6 @@
 ##Guide for using MongoDB and deploying it to Heroku
 
-In this guide lets see how to work with MongoDB localy and with mLab for deploying it to Heroku
+In this guide lets see how to work with MongoDB localy and with mLab for deploying it to Heroku, Alternatively you can use mLab add-on in Heroku , It is free but it may require your Credit card Details So if you are not intrested in providing your credit card details you can go with [mLab](https://mlab.com) website 
 
 #### Setting up a free account on Heroku and mLab:
 
@@ -22,6 +22,7 @@ Now your Db is running at-
 3. Finally Add a User/Users who can acess this Database,While Adding a user it will ask for Database username and password which are used to acess the Database
 
 Now your Db is running at something like this -
+
 ` mongodb://username:password@ds01316.mlab.com:1316/food `
 
 
@@ -62,7 +63,7 @@ var url = 'mongodb://localhost:27017/my_database_name';
     //Close connection
     db.close();
   }
-});
+});
 
 ```
 >For more examples to work with MongoDB you can refer this  [blog](http://blog.modulus.io/mongodb-tutorial) 
@@ -73,8 +74,40 @@ Assuming that your database is running on the url mentioned above let us now foc
 
 ```var url = 'mongodb://localhost:27017/my_database_name';```
 
-This is the url for connecting to mLab DB
+
+####Making a Connection with MongoDB in Node.js (While DB is running in your mLab):
+
+The url for connecting to mLab DB looks like this
 
 ```var url = 'mongodb://username:password@ds01316.mlab.com:1316/food';```
 
+You can replace the url variable with this and everything will be working exactly the way it should be and finally your database is safe and secure at mLab you can view your collections,users,backups etc..
 
+#####Spoiler Alert!!!!
+
+But Commiting your username and password to your public repo is sometimes very dangerous so never commit them into public reposotories, Instead you can use environment variables to store the url (containing username and password) , to do this in your **local** system
+
+For Mac/Linux users, you can simply type:
+
+``` export MONGOLAB_URI="mongodb://username:password@ds01316.mlab.com:1316/food" ```
+
+For Windows users:
+
+``` SET MONGOLAB_URI="mongodb://username:password@ds01316.mlab.com:1316/food" ```
+
+After setting the Environment variables you need to call the Environment Variable into your code .. you can do it like this
+
+``` var url = process.env.MONGOLAB_URI; ```
+
+Now your MongoDb url is inserted into your code safely you can now commit it and deploy it to your heroku
+
+>If you need more help how to deploy into Heroku you can refer this [Wiki](https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Heroku-Deployment-Guide)
+
+####Final Steps:
+After Deploying your code to your Heroku App, you need to set the environment variable for the Code in heroku
+
+To do this you need to run the following command from your heroku remote
+
+```heroku config:set MONGOLAB_URI=mongodb://username:password@ds01316.mlab.com:1316/food```
+
+Thats it, Your app is now successfully deployed in heroku with mLabDB
