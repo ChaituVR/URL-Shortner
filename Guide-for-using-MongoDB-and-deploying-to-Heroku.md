@@ -1,4 +1,4 @@
-##Guide for using MongoDB and deploying it to Heroku
+##Guide for using MongoDB and deploying to Heroku
 
 In this guide lets see how to work with MongoDB locally and with mLab for deploying it to Heroku. Alternatively you can also use mLab add-on in Heroku , It is free but it may require your Credit card Details. So, if you are not intrested in providing your credit card details you can go with [mLab](https://mlab.com) website. 
 
